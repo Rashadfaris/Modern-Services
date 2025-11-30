@@ -51,7 +51,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[500px] sm:h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden py-8 sm:py-0">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A1A2F]/90 to-[#0A1A2F]/70 z-10"></div>
         <ImageWithFallback
           src="https://images.unsplash.com/photo-1740595198785-e3d0f90442e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxMb25kb24lMjBza3lsaW5lJTIwbHV4dXJ5fGVufDF8fHx8MTc2NDI3NjU0M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
@@ -60,17 +60,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
         />
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-white mb-4">
-            <span className="text-4xl md:text-5xl lg:text-6xl font-bold block mb-2">Modern Services</span>
-            <span className="text-xl md:text-2xl lg:text-3xl font-semibold block whitespace-nowrap">Your Trusted Partner for Property Management in England</span>
+            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold block mb-3 sm:mb-2">Modern Services</span>
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold block px-2 leading-tight">Your Trusted Partner for Property Management in England</span>
           </h1>
-          <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 leading-relaxed px-2">
             Seamless, profitable, and stress-free property solutions tailored for international investors.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={() => onNavigate('contact')}>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
+            <Button onClick={() => onNavigate('contact')} className="w-full sm:w-auto">
               Get a Free Consultation
             </Button>
-            <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-[#0A1A2F]" onClick={() => onNavigate('services')}>
+            <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-[#0A1A2F] w-full sm:w-auto" onClick={() => onNavigate('services')}>
               Explore Our Services
             </Button>
           </div>
@@ -78,18 +78,18 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* About Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-[#0A1A2F] mb-6">About Modern Services</h2>
-              <p className="text-gray-700 mb-6 leading-relaxed">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#0A1A2F] mb-4 sm:mb-6">About Modern Services</h2>
+              <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 leading-relaxed">
                 For over 20 years, Modern Services has empowered international investors with exceptional property management across England. We enhance both your investments and the communities we manage.
               </p>
-              <p className="text-gray-700 mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 mb-6 sm:mb-8 leading-relaxed">
                 Our comprehensive approach combines expert property management with integrated accounting services, ensuring your investments are professionally managed, fully compliant, and optimized for maximum returns.
               </p>
-              <Button onClick={() => onNavigate('about')}>
+              <Button onClick={() => onNavigate('about')} className="w-full sm:w-auto">
                 Learn More About Us
               </Button>
             </div>
@@ -105,15 +105,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Key Investor Benefits */}
-      <section className="py-20 bg-[#F4F5F7]">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#F4F5F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-[#0A1A2F] mb-4">Why International Investors Choose Us</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#0A1A2F] mb-3 sm:mb-4">Why International Investors Choose Us</h2>
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
               We provide comprehensive solutions that protect and grow your property investments in England.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <BenefitCard
               icon={Shield}
               title="Peace of Mind"
@@ -139,15 +139,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-[#0A1A2F] mb-4">Our Core Services</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#0A1A2F] mb-3 sm:mb-4">Our Core Services</h2>
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
               Comprehensive property and financial management solutions tailored for international investors.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <ServiceCard
               icon={Building2}
               title="Property Management"
@@ -186,11 +186,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Testimonials Slider */}
-      <section className="py-20 bg-[#0A1A2F]">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#0A1A2F]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-white mb-4">What Our Clients Say</h2>
-            <p className="text-gray-300">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mb-3 sm:mb-4">What Our Clients Say</h2>
+            <p className="text-sm sm:text-base text-gray-300 px-2">
               Trusted by international investors worldwide
             </p>
           </div>
@@ -222,17 +222,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#C8A75B]">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#C8A75B]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-white mb-6">Ready to Optimize Your Property Investment?</h2>
-          <p className="text-white/90 text-lg mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white mb-4 sm:mb-6 px-2">Ready to Optimize Your Property Investment?</h2>
+          <p className="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-8 px-2">
             Get a free consultation with our property management experts today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" className="bg-white text-[#0A1A2F] hover:bg-gray-100" onClick={() => onNavigate('contact')}>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
+            <Button variant="secondary" className="bg-white text-[#0A1A2F] hover:bg-gray-100 w-full sm:w-auto" onClick={() => onNavigate('contact')}>
               Schedule Consultation
             </Button>
-            <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-[#0A1A2F]" onClick={() => onNavigate('services')}>
+            <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-[#0A1A2F] w-full sm:w-auto" onClick={() => onNavigate('services')}>
               Learn More
             </Button>
           </div>
