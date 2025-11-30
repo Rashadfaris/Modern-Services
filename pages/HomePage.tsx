@@ -59,18 +59,18 @@ export function HomePage({ onNavigate }: HomePageProps) {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-white mb-4">
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold block mb-3 sm:mb-2">Modern Services</span>
-            <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold block px-2 leading-tight">Your Trusted Partner for Property Management in England</span>
+          <h1 className="text-white mb-4 sm:mb-6">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold block mb-2 sm:mb-3">Modern Services</span>
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold block px-1 sm:px-2 leading-snug sm:leading-tight">Your Trusted Partner for Property Management in England</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 leading-relaxed px-2">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-200 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-4">
             Seamless, profitable, and stress-free property solutions tailored for international investors.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
-            <Button onClick={() => onNavigate('contact')} className="w-full sm:w-auto">
+            <Button onClick={() => onNavigate('contact')} className="w-full sm:w-auto text-sm sm:text-base">
               Get a Free Consultation
             </Button>
-            <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-[#0A1A2F] w-full sm:w-auto" onClick={() => onNavigate('services')}>
+            <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-[#0A1A2F] w-full sm:w-auto text-sm sm:text-base" onClick={() => onNavigate('services')}>
               Explore Our Services
             </Button>
           </div>
