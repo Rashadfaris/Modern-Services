@@ -10,7 +10,6 @@ import {
   Home, 
   Wrench, 
   TrendingUp, 
-  MessageSquare, 
   Clock,
   ChevronDown,
   ChevronUp,

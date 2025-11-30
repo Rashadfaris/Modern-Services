@@ -1,6 +1,6 @@
 import { ValueCard } from '../components/ValueCard';
 import { BenefitCard } from '../components/BenefitCard';
-import { Heart, Eye, Users, Lightbulb, Award, Target, Shield, BarChart, UserCheck, Headphones, Calculator, Laptop } from 'lucide-react';
+import { Heart, Eye, Users, Lightbulb, Award, Target, Shield, BarChart, UserCheck, Calculator, Laptop } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Button } from '../components/ui/button';
 
