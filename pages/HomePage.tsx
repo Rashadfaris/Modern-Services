@@ -4,6 +4,7 @@ import { ServiceCard } from '../components/ServiceCard';
 import { TestimonialCard } from '../components/TestimonialCard';
 import { Shield, TrendingUp, Clock, FileCheck, Building2, Users, Wallet, Wrench } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { FadeIn } from '../components/FadeIn';
 import { useState, useEffect } from 'react';
 
 interface HomePageProps {
@@ -80,7 +81,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
       {/* About Preview */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="text-center lg:text-left">
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#0A1A2F] mb-4 sm:mb-6">About Modern Services</h2>
               <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 leading-relaxed">
@@ -100,20 +102,22 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Key Investor Benefits */}
       <section className="py-12 sm:py-16 md:py-20 bg-[#F4F5F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
+          <FadeIn>
+            <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#0A1A2F] mb-3 sm:mb-4">Why International Investors Choose Us</h2>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
               We provide comprehensive solutions that protect and grow your property investments in England.
             </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <BenefitCard
               icon={Shield}
               title="Peace of Mind"
@@ -134,20 +138,22 @@ export function HomePage({ onNavigate }: HomePageProps) {
               title="Legal & Tax Compliance"
               description="Full UK regulatory compliance and expert tax guidance to protect your interests."
             />
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Services Overview */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
+          <FadeIn>
+            <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#0A1A2F] mb-3 sm:mb-4">Our Core Services</h2>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
               Comprehensive property and financial management solutions tailored for international investors.
             </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <ServiceCard
               icon={Building2}
               title="Property Management"
@@ -176,25 +182,27 @@ export function HomePage({ onNavigate }: HomePageProps) {
               features={['24/7 Emergency', 'Quality Contractors', 'Cost Control']}
               onLearnMore={() => onNavigate('services')}
             />
-          </div>
-          <div className="text-center mt-12">
-            <Button onClick={() => onNavigate('services')}>
-              View All Services
-            </Button>
-          </div>
+            </div>
+            <div className="text-center mt-12">
+              <Button onClick={() => onNavigate('services')}>
+                View All Services
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Testimonials Slider */}
       <section className="py-12 sm:py-16 md:py-20 bg-[#0A1A2F]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
+          <FadeIn>
+            <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mb-3 sm:mb-4">What Our Clients Say</h2>
             <p className="text-sm sm:text-base text-gray-300 px-2">
               Trusted by international investors worldwide
             </p>
-          </div>
-          <div className="relative">
+            </div>
+            <div className="relative">
             <TestimonialCard
               name={testimonials[currentTestimonial].name}
               role={testimonials[currentTestimonial].role}
@@ -212,18 +220,20 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 />
               ))}
             </div>
-          </div>
-          <div className="text-center mt-12">
-            <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-[#0A1A2F]" onClick={() => onNavigate('testimonials')}>
-              Read More Testimonials
-            </Button>
-          </div>
+            </div>
+            <div className="text-center mt-12">
+              <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-[#0A1A2F]" onClick={() => onNavigate('testimonials')}>
+                Read More Testimonials
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-[#C8A75B]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <FadeIn>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white mb-4 sm:mb-6 px-2">Ready to Optimize Your Property Investment?</h2>
           <p className="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-8 px-2">
             Get a free consultation with our property management experts today.
@@ -236,7 +246,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
               Learn More
             </Button>
           </div>
-        </div>
+          </div>
+        </FadeIn>
       </section>
     </div>
   );

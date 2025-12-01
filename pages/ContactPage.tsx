@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '../components/ui/button';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { FadeIn } from '../components/FadeIn';
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
 
 interface ContactPageProps {
@@ -55,7 +56,8 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
       {/* Contact Form & Info Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
               <h2 className="text-[#0A1A2F] mb-6">Send Us a Message</h2>
@@ -229,58 +231,62 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                 </a>
               </div>
             </div>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Map Section */}
       <section className="py-20 bg-[#F4F5F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-[#0A1A2F] mb-4">Visit Our Office</h2>
-            <p className="text-gray-600">
-              Located in Harrow, we welcome visits by appointment
-            </p>
-          </div>
-          
-          {/* Clickable Map Image */}
-          <div className="rounded-lg overflow-hidden shadow-lg max-w-4xl mx-auto">
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open location in Google Maps"
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1506377295352-e3154d43ea9e?auto=format&fit=crop&w=1200&q=80"
-                alt="Map view representing the office location in Harrow"
-                className="w-full h-[260px] sm:h-[320px] md:h-[400px] object-cover transition-transform duration-300 hover:scale-[1.02]"
-              />
-            </a>
-            <div className="bg-white px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center gap-2 border-t border-gray-200">
-              <MapPin size={20} className="text-[#C8A75B]" />
-              <button
-                type="button"
-                className="text-sm sm:text-base text-[#0A1A2F] hover:text-[#C8A75B] underline underline-offset-4"
-                onClick={() =>
-                  window.open(
-                    'https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom',
-                    '_blank',
-                    'noopener,noreferrer'
-                  )
-                }
-              >
-                5 Warham Road, Harrow, HA3 7JE, United Kingdom
-              </button>
+          <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="text-[#0A1A2F] mb-4">Visit Our Office</h2>
+              <p className="text-gray-600">
+                Located in Harrow, we welcome visits by appointment
+              </p>
             </div>
-          </div>
+            
+            {/* Clickable Map Image */}
+            <div className="rounded-lg overflow-hidden shadow-lg max-w-4xl mx-auto">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open location in Google Maps"
+              >
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1506377295352-e3154d43ea9e?auto=format&fit=crop&w=1200&q=80"
+                  alt="Map view representing the office location in Harrow"
+                  className="w-full h-[260px] sm:h-[320px] md:h-[400px] object-cover transition-transform duration-300 hover:scale-[1.02]"
+                />
+              </a>
+              <div className="bg-white px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center gap-2 border-t border-gray-200">
+                <MapPin size={20} className="text-[#C8A75B]" />
+                <button
+                  type="button"
+                  className="text-sm sm:text-base text-[#0A1A2F] hover:text-[#C8A75B] underline underline-offset-4"
+                  onClick={() =>
+                    window.open(
+                      'https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom',
+                      '_blank',
+                      'noopener,noreferrer'
+                    )
+                  }
+                >
+                  5 Warham Road, Harrow, HA3 7JE, United Kingdom
+                </button>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* FAQ Preview / Quick Info */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeIn>
+            <div className="text-center mb-12">
             <h2 className="text-[#0A1A2F] mb-4">Have Questions?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Here are some quick answers to common questions. For more detailed information, please contact us directly.
@@ -308,13 +314,15 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                 Our fees are competitive and transparent, varying based on property type and services required. Contact us for a personalized quote.
               </p>
             </div>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-[#0A1A2F]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <FadeIn>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-white mb-6">Ready to Get Started?</h2>
           <p className="text-gray-300 text-lg mb-8">
             Join hundreds of satisfied international investors who trust Modern Services with their UK property investments.
@@ -327,7 +335,8 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
               Learn About Us
             </Button>
           </div>
-        </div>
+          </div>
+        </FadeIn>
       </section>
     </div>
   );

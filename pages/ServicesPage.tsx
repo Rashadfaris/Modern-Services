@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '../components/ui/button';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { FadeIn } from '../components/FadeIn';
 import { 
   Building2, 
   Users, 
@@ -53,7 +54,8 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       {/* Main Service: Comprehensive Property Management */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeIn>
+            <div className="text-center mb-12">
             <div className="w-20 h-20 bg-[#C8A75B] rounded-full flex items-center justify-center mx-auto mb-6">
               <Building2 size={40} className="text-white" />
             </div>
@@ -456,13 +458,15 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
               )}
             </div>
           </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Accounting Services */}
       <section className="py-20 bg-[#F4F5F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeIn>
+            <div className="text-center mb-12">
             <div className="w-20 h-20 bg-[#0A1A2F] rounded-full flex items-center justify-center mx-auto mb-6">
               <Calculator size={40} className="text-[#C8A75B]" />
             </div>
@@ -600,12 +604,14 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
               <ExternalLink size={20} />
             </a>
           </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <FadeIn>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-[#0A1A2F] mb-6">Let's Discuss Your Property Needs</h2>
           <p className="text-gray-600 text-lg mb-8">
             Schedule a free consultation to learn how our services can benefit your property investment.
@@ -618,7 +624,8 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
               Read Client Stories
             </Button>
           </div>
-        </div>
+          </div>
+        </FadeIn>
       </section>
     </div>
   );

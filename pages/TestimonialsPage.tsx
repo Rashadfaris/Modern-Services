@@ -1,6 +1,7 @@
 import { TestimonialCard } from '../components/TestimonialCard';
 import { Button } from '../components/ui/button';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { FadeIn } from '../components/FadeIn';
 import { Star, Quote } from 'lucide-react';
 
 interface TestimonialsPageProps {
@@ -133,31 +134,34 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
       {/* Testimonials Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-[#0A1A2F] mb-4">What Our Clients Say</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Real feedback from real investors who trust us with their property investments in England.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="text-[#0A1A2F] mb-4">What Our Clients Say</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Real feedback from real investors who trust us with their property investments in England.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                name={testimonial.name}
-                role={testimonial.role}
-                content={testimonial.content}
-                rating={testimonial.rating}
-              />
-            ))}
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <TestimonialCard
+                  key={index}
+                  name={testimonial.name}
+                  role={testimonial.role}
+                  content={testimonial.content}
+                  rating={testimonial.rating}
+                />
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Featured Testimonial */}
       <section className="py-20 bg-[#F4F5F7]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-12 rounded-lg shadow-xl">
+        <FadeIn>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white p-12 rounded-lg shadow-xl">
             <Quote size={48} className="text-[#C8A75B] mb-6" />
             <p className="text-2xl text-gray-700 italic mb-8 leading-relaxed">
               "Modern Services doesn't just manage properties—they build partnerships. In an industry where trust is everything, they've proven time and again that they have their clients' best interests at heart. I sleep better at night knowing my UK investments are in their capable hands."
@@ -173,13 +177,15 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
               <div className="text-sm text-gray-400 mt-2">Client since 2016</div>
             </div>
           </div>
-        </div>
+          </div>
+        </FadeIn>
       </section>
 
       {/* Countries Served */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeIn>
+            <div className="text-center mb-12">
             <h2 className="text-[#0A1A2F] mb-4">Serving Investors Globally</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We proudly serve property investors from around the world who trust us with their UK investments.
@@ -191,13 +197,15 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
                 <div className="text-[#0A1A2F]">{country}</div>
               </div>
             ))}
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-[#0A1A2F]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <FadeIn>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-white mb-6">Join Our Family of Satisfied Investors</h2>
           <p className="text-gray-300 text-lg mb-8">
             Experience the Modern Services difference. Get a free consultation today.
@@ -210,7 +218,8 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
               View Our Services
             </Button>
           </div>
-        </div>
+          </div>
+        </FadeIn>
       </section>
     </div>
   );

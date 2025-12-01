@@ -3,6 +3,7 @@ import { BenefitCard } from '../components/BenefitCard';
 import { Heart, Eye, Users, Lightbulb, Award, Target, Shield, BarChart, UserCheck, Calculator, Laptop } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Button } from '../components/ui/button';
+import { FadeIn } from '../components/FadeIn';
 
 interface AboutPageProps {
   onNavigate: (page: string) => void;
@@ -30,7 +31,8 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
       {/* Our Story */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-[#0A1A2F] mb-6">Our Story</h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
@@ -50,14 +52,16 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Our Values */}
       <section className="py-20 bg-[#F4F5F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeIn>
+            <div className="text-center mb-12">
             <h2 className="text-[#0A1A2F] mb-4">Our Core Values</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               These principles guide every decision we make and every service we provide.
@@ -89,14 +93,16 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               title="Expertise"
               description="Two decades of experience combined with continuous learning keeps us at the industry forefront."
             />
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeIn>
+            <div className="text-center mb-12">
             <h2 className="text-[#0A1A2F] mb-4">Why Choose Modern Services?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We offer a unique combination of expertise, technology, and personalized service that sets us apart.
@@ -133,14 +139,16 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               title="Advanced Technology"
               description="State-of-the-art property management software and online portal for 24/7 access to your investment data."
             />
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Our Mission & Vision */}
       <section className="py-20 bg-[#0A1A2F]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <FadeIn>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="bg-white/5 p-8 rounded-lg">
               <div className="w-16 h-16 bg-[#C8A75B] rounded-full flex items-center justify-center mb-6">
                 <Target size={32} className="text-white" />
@@ -159,14 +167,16 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                 To be recognized as the leading property management company for international investors in England, known for our integrity, innovation, and unwavering commitment to client success and community enhancement.
               </p>
             </div>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="py-20 bg-[#C8A75B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <FadeIn>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-5xl text-white mb-2">20+</div>
               <div className="text-white/90">Years Experience</div>
@@ -183,13 +193,15 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               <div className="text-5xl text-white mb-2">24/7</div>
               <div className="text-white/90">Support Available</div>
             </div>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <FadeIn>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-[#0A1A2F] mb-6">Ready to Partner With Us?</h2>
           <p className="text-gray-600 text-lg mb-8">
             Let's discuss how we can help you achieve your property investment goals in England.
@@ -202,7 +214,8 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               Explore Our Services
             </Button>
           </div>
-        </div>
+          </div>
+        </FadeIn>
       </section>
     </div>
   );
