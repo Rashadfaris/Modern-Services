@@ -31,9 +31,17 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           <div className="flex-shrink-0">
             <button
               onClick={() => handleNavClick('home')}
-              className="text-2xl font-bold text-[#0A1A2F] hover:text-[#C8A75B] transition-colors"
+              className="flex items-center gap-2 group"
+              aria-label="Go to Modern Services home page"
             >
-              Modern Services
+              <img
+                src="/logo/Corporate_Logo_with_Building_and_Shield_Icon-removebg-preview.png"
+                alt="Modern Services logo"
+                className="h-12 w-auto sm:h-14 md:h-16 object-contain transition-transform duration-200 group-hover:scale-105"
+              />
+              <span className="text-xl sm:text-2xl font-bold text-[#0A1A2F] group-hover:text-[#C8A75B] transition-colors">
+                Modern Services
+              </span>
             </button>
           </div>
 

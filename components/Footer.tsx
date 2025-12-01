@@ -84,15 +84,15 @@ export function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex items-start space-x-2">
                 <Phone size={16} className="text-[#C8A75B] mt-1 flex-shrink-0" />
-                <span>+44 20 1234 5678</span>
+                <span>+44 20 8058 7635</span>
               </li>
               <li className="flex items-start space-x-2">
                 <Mail size={16} className="text-[#C8A75B] mt-1 flex-shrink-0" />
-                <span>info@modernservices.co.uk</span>
+                <span>info@modernservices.org.uk</span>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin size={16} className="text-[#C8A75B] mt-1 flex-shrink-0" />
-                <span>123 Property Lane<br />London, W1A 1AA<br />United Kingdom</span>
+                <span>5 Warham Road<br />Harrow, HA3 7JE<br />United Kingdom</span>
               </li>
             </ul>
           </div>

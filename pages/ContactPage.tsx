@@ -113,7 +113,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-[#C8A75B] transition-colors"
-                      placeholder="+44 20 1234 5678"
+                      placeholder="+44 20 8058 7635"
                     />
                   </div>
 
@@ -158,8 +158,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h4 className="text-[#0A1A2F] mb-2">Phone</h4>
-                    <p className="text-gray-600">+44 20 1234 5678</p>
-                    <p className="text-gray-600">+44 20 8765 4321</p>
+                    <p className="text-gray-600">+44 20 8058 7635</p>
                     <p className="text-sm text-gray-500 mt-1">International rates may apply</p>
                   </div>
                 </div>
@@ -171,8 +170,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h4 className="text-[#0A1A2F] mb-2">Email</h4>
-                    <p className="text-gray-600">info@modernservices.co.uk</p>
-                    <p className="text-gray-600">support@modernservices.co.uk</p>
+                    <p className="text-gray-600">info@modernservices.org.uk</p>
                     <p className="text-sm text-gray-500 mt-1">We respond within 24 hours</p>
                   </div>
                 </div>
@@ -184,9 +182,16 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h4 className="text-[#0A1A2F] mb-2">Office Address</h4>
-                    <p className="text-gray-600">123 Property Lane</p>
-                    <p className="text-gray-600">London, W1A 1AA</p>
-                    <p className="text-gray-600">United Kingdom</p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-[#C8A75B] transition-colors inline-block"
+                    >
+                      <p>5 Warham Road</p>
+                      <p>Harrow, HA3 7JE</p>
+                      <p>United Kingdom</p>
+                    </a>
                   </div>
                 </div>
 
@@ -215,7 +220,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   Get immediate assistance through WhatsApp. Perfect for quick questions or urgent matters.
                 </p>
                 <a
-                  href="https://wa.me/442012345678"
+                  href="https://wa.me/442080587635"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-white text-[#25D366] px-6 py-3 rounded-sm hover:bg-gray-100 transition-colors"
@@ -234,16 +239,39 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
           <div className="text-center mb-12">
             <h2 className="text-[#0A1A2F] mb-4">Visit Our Office</h2>
             <p className="text-gray-600">
-              Located in the heart of London, we welcome visits by appointment
+              Located in Harrow, we welcome visits by appointment
             </p>
           </div>
           
-          {/* Map Placeholder */}
-          <div className="bg-gray-300 h-[400px] rounded-lg flex items-center justify-center">
-            <div className="text-center">
-              <MapPin size={48} className="text-gray-500 mx-auto mb-4" />
-              <p className="text-gray-600">Interactive Map</p>
-              <p className="text-sm text-gray-500">123 Property Lane, London, W1A 1AA</p>
+          {/* Clickable Map Image */}
+          <div className="rounded-lg overflow-hidden shadow-lg max-w-4xl mx-auto">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open location in Google Maps"
+            >
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1506377295352-e3154d43ea9e?auto=format&fit=crop&w=1200&q=80"
+                alt="Map view representing the office location in Harrow"
+                className="w-full h-[260px] sm:h-[320px] md:h-[400px] object-cover transition-transform duration-300 hover:scale-[1.02]"
+              />
+            </a>
+            <div className="bg-white px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center gap-2 border-t border-gray-200">
+              <MapPin size={20} className="text-[#C8A75B]" />
+              <button
+                type="button"
+                className="text-sm sm:text-base text-[#0A1A2F] hover:text-[#C8A75B] underline underline-offset-4"
+                onClick={() =>
+                  window.open(
+                    'https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom',
+                    '_blank',
+                    'noopener,noreferrer'
+                  )
+                }
+              >
+                5 Warham Road, Harrow, HA3 7JE, United Kingdom
+              </button>
             </div>
           </div>
         </div>
