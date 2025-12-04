@@ -51,19 +51,22 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         </div>
       </section>
 
-      {/* Main Service: Comprehensive Property Management */}
+      {/* Main Services: Side by Side */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="text-center mb-12">
-            <div className="w-20 h-20 bg-[#C8A75B] rounded-full flex items-center justify-center mx-auto mb-6">
-              <Building2 size={40} className="text-white" />
-            </div>
-            <h2 className="text-[#0A1A2F] mb-4">Comprehensive Property Management</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-              Full-service property management designed specifically for international investors. We handle every aspect of your property investment, allowing you to enjoy passive income with complete peace of mind.
-            </p>
-          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              {/* Comprehensive Property Management */}
+              <div>
+                <div className="text-center mb-12">
+                  <div className="w-20 h-20 bg-[#C8A75B] rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Building2 size={40} className="text-white" />
+                  </div>
+                  <h2 className="text-[#0A1A2F] mb-4">Comprehensive Property Management</h2>
+                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Full-service property management designed specifically for international investors. We handle every aspect of your property investment, allowing you to enjoy passive income with complete peace of mind.
+                  </p>
+                </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             <div className="bg-[#F4F5F7] p-6 rounded-lg">
@@ -458,25 +461,21 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
               )}
             </div>
           </div>
-          </FadeIn>
-        </div>
-      </section>
+              </div>
 
-      {/* Accounting Services */}
-      <section className="py-20 bg-[#F4F5F7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-12">
-            <div className="w-20 h-20 bg-[#0A1A2F] rounded-full flex items-center justify-center mx-auto mb-6">
-              <Calculator size={40} className="text-[#C8A75B]" />
-            </div>
-            <h2 className="text-[#0A1A2F] mb-4">Accounting Services</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-              Professional accounting and financial services to keep your property business compliant and profitable.
-            </p>
-          </div>
+              {/* Accounting Services */}
+              <div>
+                <div className="text-center mb-12">
+                  <div className="w-20 h-20 bg-[#0A1A2F] rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Calculator size={40} className="text-[#C8A75B]" />
+                  </div>
+                  <h2 className="text-[#0A1A2F] mb-4">Accounting Services</h2>
+                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Professional accounting and financial services to keep your property business compliant and profitable.
+                  </p>
+                </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div className="grid grid-cols-1 gap-6 mb-12">
             <div className="bg-white p-8 rounded-lg shadow-md">
               <BookOpen size={32} className="text-[#C8A75B] mb-4" />
               <h4 className="text-[#0A1A2F] mb-3">Bookkeeping Services</h4>
@@ -588,22 +587,24 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
             </div>
           </div>
 
-          {/* Pluto Consultancy CTA */}
-          <div className="bg-[#0A1A2F] p-8 rounded-lg text-center">
-            <h3 className="text-white mb-4">Expert Accountancy & Tax Advice</h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              For comprehensive accountancy and tax consultancy services, visit our specialist partner Pluto Consultancy.
-            </p>
-            <a
-              href="https://plutoconsultancy.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-[#C8A75B] text-white px-8 py-3 rounded-sm hover:bg-[#B39650] transition-colors"
-            >
-              <span>Visit Pluto Consultancy</span>
-              <ExternalLink size={20} />
-            </a>
-          </div>
+                {/* Pluto Consultancy CTA */}
+                <div className="bg-[#0A1A2F] p-8 rounded-lg text-center">
+                  <h3 className="text-white mb-4">Expert Accountancy & Tax Advice</h3>
+                  <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                    For comprehensive accountancy and tax consultancy services, visit our specialist partner Pluto Consultancy.
+                  </p>
+                  <a
+                    href="https://plutoconsultancy.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-[#C8A75B] text-white px-8 py-3 rounded-sm hover:bg-[#B39650] transition-colors"
+                  >
+                    <span>Visit Pluto Consultancy</span>
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>

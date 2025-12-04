@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, FileText } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -91,8 +91,8 @@ export function Footer({ onNavigate }: FooterProps) {
                 <span>info@modernservices.org.uk</span>
               </li>
               <li className="flex items-start space-x-2">
-                <MapPin size={16} className="text-[#C8A75B] mt-1 flex-shrink-0" />
-                <span>5 Warham Road<br />Harrow, HA3 7JE<br />United Kingdom</span>
+                <FileText size={16} className="text-[#C8A75B] mt-1 flex-shrink-0" />
+                <span>Company Registration No: 07540085 (England and Wales)</span>
               </li>
             </ul>
           </div>

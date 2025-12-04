@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '../components/ui/button';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { FadeIn } from '../components/FadeIn';
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle, FileText } from 'lucide-react';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -177,23 +177,14 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                 </div>
 
-                {/* Address */}
+                {/* Company Registration */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-[#F4F5F7] rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin size={24} className="text-[#C8A75B]" />
+                    <FileText size={24} className="text-[#C8A75B]" />
                   </div>
                   <div>
-                    <h4 className="text-[#0A1A2F] mb-2">Office Address</h4>
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-[#C8A75B] transition-colors inline-block"
-                    >
-                      <p>5 Warham Road</p>
-                      <p>Harrow, HA3 7JE</p>
-                      <p>United Kingdom</p>
-                    </a>
+                    <h4 className="text-[#0A1A2F] mb-2">Company Registration</h4>
+                    <p className="text-gray-600">Company Registration No: 07540085 (England and Wales)</p>
                   </div>
                 </div>
 
@@ -247,35 +238,29 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
               </p>
             </div>
             
-            {/* Clickable Map Image */}
+            {/* Embedded Google Map */}
             <div className="rounded-lg overflow-hidden shadow-lg max-w-4xl mx-auto">
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open location in Google Maps"
-              >
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1506377295352-e3154d43ea9e?auto=format&fit=crop&w=1200&q=80"
-                  alt="Map view representing the office location in Harrow"
-                  className="w-full h-[260px] sm:h-[320px] md:h-[400px] object-cover transition-transform duration-300 hover:scale-[1.02]"
-                />
-              </a>
+              <iframe
+                src="https://www.google.com/maps?q=51.5815206,-0.3381921&hl=en&z=14&output=embed"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-[260px] sm:h-[320px] md:h-[400px]"
+                title="Harrow Town Centre Location"
+              ></iframe>
               <div className="bg-white px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center gap-2 border-t border-gray-200">
                 <MapPin size={20} className="text-[#C8A75B]" />
-                <button
-                  type="button"
+                <a
+                  href="https://www.google.com/maps/place/Harrow+Town+Centre/@51.5709394,-0.3559589,11.84z/data=!4m6!3m5!1s0x48761333164b39cb:0x9de5350251e21376!8m2!3d51.5815206!4d-0.3381921!16s%2Fg%2F11gtzgby1z?hl=en-US&entry=ttu&g_ep=EgoyMDI1MTIwMS4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm sm:text-base text-[#0A1A2F] hover:text-[#C8A75B] underline underline-offset-4"
-                  onClick={() =>
-                    window.open(
-                      'https://www.google.com/maps/search/?api=1&query=5+Warham+Road,+Harrow,+HA3+7JE,+United+Kingdom',
-                      '_blank',
-                      'noopener,noreferrer'
-                    )
-                  }
                 >
-                  5 Warham Road, Harrow, HA3 7JE, United Kingdom
-                </button>
+                  Harrow Town Centre
+                </a>
               </div>
             </div>
           </FadeIn>
