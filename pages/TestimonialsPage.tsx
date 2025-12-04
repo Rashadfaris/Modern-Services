@@ -11,75 +11,51 @@ interface TestimonialsPageProps {
 export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
   const testimonials = [
     {
-      name: "Sarah Mitchell",
-      role: "Property Investor, Dubai",
-      content: "Modern Services has transformed how I manage my UK properties. Their attention to detail and transparent reporting give me complete peace of mind from abroad. I've been able to grow my portfolio from 2 to 8 properties over the past 5 years, all thanks to their exceptional management.",
+      name: "Ahmed",
+      role: "Investor, Dubai, UAE",
+      content: "Managing properties in England from Dubai seemed daunting at first, but Modern Services made it effortless. Their transparent reporting and proactive communication keep me informed about every aspect of my portfolio. The team's expertise in UK property laws and tax compliance has been invaluable. I've expanded from one property to five, all thanks to their exceptional service.",
       rating: 5
     },
     {
-      name: "James Chen",
-      role: "International Investor, Singapore",
-      content: "The team's expertise in both property management and UK tax compliance is invaluable. They've maximized my returns while ensuring full legal compliance. The monthly reports are detailed and easy to understand, even with the time zone difference.",
+      name: "Fatima",
+      role: "Property Owner, Riyadh, Saudi Arabia",
+      content: "What impressed me most is how Modern Services handles everything from tenant sourcing to maintenance without me having to worry. Their monthly financial reports are detailed and always arrive on time. The 24/7 support means I can reach them whenever needed, despite the time difference. My properties have been fully occupied with quality tenants since day one.",
       rating: 5
     },
     {
-      name: "Maria Rodriguez",
-      role: "Real Estate Portfolio Owner, Spain",
-      content: "After 5 years with Modern Services, I can confidently say they are the best in the business. Professional, responsive, and truly care about my investments. They've helped me navigate Brexit changes and kept my properties fully occupied throughout.",
+      name: "Khalid",
+      role: "Portfolio Holder, Doha, Qatar",
+      content: "After working with another management company that left me frustrated, finding Modern Services was a game-changer. They understand the unique needs of international investors and provide comprehensive services that cover every aspect of property management. Their attention to detail and regular property inspections give me complete confidence. My rental yields have improved significantly since switching to them.",
       rating: 5
     },
     {
-      name: "Robert Thompson",
-      role: "Property Developer, USA",
-      content: "Their integrated approach to property management and accounting has streamlined my entire UK operation. Exceptional service and results. The 24/7 support means I can reach them whenever I need, despite being 5 hours behind.",
+      name: "Layla",
+      role: "Investor, Dubai, UAE",
+      content: "The integrated property management and accounting services have streamlined my entire UK investment operation. Modern Services handles everything from rent collection to tax compliance seamlessly. Their team is professional, responsive, and truly cares about maximizing my returns. I sleep better at night knowing my investments are in their capable hands.",
       rating: 5
     },
     {
-      name: "Amira Hassan",
-      role: "Investor, UAE",
-      content: "From tenant sourcing to financial reporting, Modern Services handles everything seamlessly. I couldn't ask for a better partner in managing my London properties. They found high-quality tenants within weeks of each property going on the market.",
+      name: "James",
+      role: "Property Owner, London, UK",
+      content: "As a London-based investor, I've tried several management companies, but Modern Services stands out for their professionalism and results. They found high-quality tenants for my properties within weeks, and their maintenance team is incredibly responsive. The detailed monthly reports help me track performance effortlessly. I couldn't be happier with their service.",
       rating: 5
     },
     {
-      name: "Pierre Dubois",
-      role: "Property Owner, France",
-      content: "The maintenance team is incredibly responsive. When there was a heating issue in winter, they had it resolved within 4 hours. My tenants were very impressed, and so was I. This level of service is why I continue to invest in UK property.",
+      name: "Emma",
+      role: "Portfolio Holder, London, UK",
+      content: "Modern Services has transformed how I manage my property portfolio. Their proactive approach means issues are resolved before they become problems. The team's expertise in tenant relations and property maintenance keeps my properties in excellent condition. The financial reporting is transparent and comprehensive, making it easy to track my investment performance.",
       rating: 5
     },
     {
-      name: "Lisa Anderson",
-      role: "Expatriate Investor, Australia",
-      content: "Moving to Australia could have been a nightmare for managing my UK properties, but Modern Services made it effortless. Their online portal lets me track everything in real-time, and the monthly financial statements are always on time and accurate.",
+      name: "Anonymous",
+      role: "Investor, UK",
+      content: "I prefer to remain anonymous, but I felt compelled to share my positive experience. Modern Services has exceeded all my expectations in managing my UK property investments. Their professionalism, attention to detail, and commitment to client satisfaction are outstanding. The peace of mind they provide is worth every penny, and I've recommended them to several colleagues.",
       rating: 5
     },
     {
-      name: "David Kumar",
-      role: "Portfolio Investor, India",
-      content: "What sets Modern Services apart is their proactive approach. They don't just react to problems; they prevent them. Regular inspections, preventive maintenance, and excellent tenant relations mean my properties stay in top condition with minimal void periods.",
-      rating: 5
-    },
-    {
-      name: "Elena Popov",
-      role: "Business Owner, Russia",
-      content: "The accounting services provided through their partnership with Pluto Consultancy have been a game-changer. Tax compliance is complex for international investors, but they make it simple. I save both time and money every tax year.",
-      rating: 5
-    },
-    {
-      name: "Michael O'Brien",
-      role: "Investor, Ireland",
-      content: "I've worked with three different property management companies over the years, and Modern Services is head and shoulders above the rest. Their professionalism, communication, and results speak for themselves. My rental yields have increased by 15% since switching to them.",
-      rating: 5
-    },
-    {
-      name: "Yuki Tanaka",
-      role: "International Investor, Japan",
-      content: "As someone who values precision and reliability, I appreciate Modern Services' systematic approach. Every detail is handled with care, from tenant screening to financial reporting. The language barrier has never been an issue thanks to their accommodating team.",
-      rating: 5
-    },
-    {
-      name: "Carlos Mendez",
-      role: "Property Developer, Mexico",
-      content: "Modern Services helped me navigate the UK property market as a first-time international investor. Their market insights and guidance were invaluable. Three years later, I own five properties in England, all managed flawlessly by their team.",
+      name: "Anonymous",
+      role: "Property Owner, England",
+      content: "While I choose to keep my identity private, I want others to know how exceptional Modern Services truly is. They've managed my properties flawlessly for years, handling everything from tenant screening to emergency repairs with efficiency and care. Their accounting services ensure I'm always compliant, and their communication is always clear and timely. Highly recommended.",
       rating: 5
     }
   ];
@@ -120,11 +96,11 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
               <div className="text-white text-sm">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-4xl text-white mb-2">200+</div>
+              <div className="text-4xl text-white mb-2">56+</div>
               <div className="text-white text-sm">Happy Clients</div>
             </div>
             <div>
-              <div className="text-4xl text-white mb-2">20+</div>
+              <div className="text-4xl text-white mb-2">10+</div>
               <div className="text-white text-sm">Years of Trust</div>
             </div>
           </div>
@@ -164,7 +140,7 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
             <div className="bg-white p-12 rounded-lg shadow-xl">
             <Quote size={48} className="text-[#C8A75B] mb-6" />
             <p className="text-2xl text-gray-700 italic mb-8 leading-relaxed">
-              "Modern Services doesn't just manage properties—they build partnerships. In an industry where trust is everything, they've proven time and again that they have their clients' best interests at heart. I sleep better at night knowing my UK investments are in their capable hands."
+              "Modern Services doesn't just manage properties—they build partnerships. In an industry where trust is everything, they've proven time and again that they have their clients' best interests at heart. Their comprehensive approach to property management and accounting services has been invaluable for my UK investments. I sleep better at night knowing my portfolio is in their capable hands."
             </p>
             <div className="flex items-center space-x-1 mb-4">
               {[...Array(5)].map((_, i) => (
@@ -172,9 +148,9 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
               ))}
             </div>
             <div className="border-t border-gray-200 pt-6">
-              <div className="text-xl text-[#0A1A2F]">Alexandra Petrov</div>
-              <div className="text-gray-500">Multi-Property Investor, Germany</div>
-              <div className="text-sm text-gray-400 mt-2">Client since 2016</div>
+              <div className="text-xl text-[#0A1A2F]">Ahmed</div>
+              <div className="text-gray-500">Portfolio Holder, Dubai, UAE</div>
+              <div className="text-sm text-gray-400 mt-2">Client since 2019</div>
             </div>
           </div>
           </div>

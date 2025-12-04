@@ -23,7 +23,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-white mb-4">About Modern Services</h1>
           <p className="text-xl text-gray-200">
-            Two decades of excellence in property management and accounting services
+            A decade of excellence in property management and accounting services
           </p>
         </div>
       </section>
@@ -36,10 +36,10 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
             <div>
               <h2 className="text-[#0A1A2F] mb-6">Our Story</h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Founded over 20 years ago, Modern Services was born from a simple vision: to provide international property investors with the same level of care and attention they would give their own investments. What started as a small property management firm has grown into a comprehensive service provider, trusted by investors across the globe.
+                Founded over 10 years ago, Modern Services was born from a simple vision: to provide international property investors with the same level of care and attention they would give their own investments. What started as a small property management firm has grown into a comprehensive service provider, trusted by investors across the globe.
               </p>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Throughout our two-decade journey, we've managed hundreds of properties across England, from luxury apartments in London to charming homes in the countryside. Our success is built on unwavering commitment to our clients' prosperity and the communities we serve.
+                Throughout our decade journey, we've managed hundreds of properties across England, from luxury apartments in London to charming homes in the countryside. Our success is built on unwavering commitment to our clients' prosperity and the communities we serve.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 Today, Modern Services stands as a beacon of excellence in property management, combining traditional values of integrity and service with cutting-edge technology and financial expertise. We don't just manage properties—we build lasting partnerships and create value for our clients every single day.
@@ -91,7 +91,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
             <ValueCard
               icon={Award}
               title="Expertise"
-              description="Two decades of experience combined with continuous learning keeps us at the industry forefront."
+              description="A decade of experience combined with continuous learning keeps us at the industry forefront."
             />
             </div>
           </FadeIn>
@@ -178,7 +178,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           <FadeIn>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-5xl text-white mb-2">20+</div>
+              <div className="text-5xl text-white mb-2">10+</div>
               <div className="text-white/90">Years Experience</div>
             </div>
             <div>

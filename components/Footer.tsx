@@ -15,7 +15,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <h3 className="text-xl font-bold mb-4 text-[#C8A75B]">Modern Services</h3>
             <p className="text-gray-300 text-sm mb-4">
-              Your trusted partner for property management in England. Serving international investors with excellence for over 20 years.
+              Your trusted partner for property management in England. Serving international investors with excellence for over 10 years.
             </p>
           </div>
 

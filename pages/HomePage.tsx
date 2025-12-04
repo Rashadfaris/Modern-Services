@@ -86,7 +86,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <div className="text-center lg:text-left">
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#0A1A2F] mb-4 sm:mb-6">About Modern Services</h2>
               <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                For over 20 years, Modern Services has empowered international investors with exceptional property management across England. We enhance both your investments and the communities we manage.
+                For over 10 years, Modern Services has empowered international investors with exceptional property management across England. We enhance both your investments and the communities we manage.
               </p>
               <p className="text-sm sm:text-base text-gray-700 mb-6 sm:mb-8 leading-relaxed">
                 Our comprehensive approach combines expert property management with integrated accounting services, ensuring your investments are professionally managed, fully compliant, and optimized for maximum returns.
