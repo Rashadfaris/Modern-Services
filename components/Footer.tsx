@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, FileText } from 'lucide-react';
+import { Mail, Phone, FileText } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
