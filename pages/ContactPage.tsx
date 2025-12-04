@@ -213,7 +213,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   Get immediate assistance through WhatsApp. Perfect for quick questions or urgent matters.
                 </p>
                 <a
-                  href="https://wa.me/442080587635"
+                  href="https://wa.me/447808646056"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-white text-[#25D366] px-6 py-3 rounded-sm hover:bg-gray-100 transition-colors"
