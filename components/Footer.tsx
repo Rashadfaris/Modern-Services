@@ -1,4 +1,4 @@
-import { Mail, Phone, FileText } from 'lucide-react';
+import { Mail, Phone, FileText, Shield } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -104,9 +104,17 @@ export function Footer({ onNavigate }: FooterProps) {
             <p className="text-gray-400 text-sm">
               © {currentYear} Modern Services. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm text-gray-400">
+            <div className="flex items-center space-x-6 text-sm text-gray-400">
               <button className="hover:text-[#C8A75B] transition-colors">Privacy Policy</button>
               <button className="hover:text-[#C8A75B] transition-colors">Terms of Service</button>
+              <button
+                onClick={() => onNavigate('admin')}
+                className="flex items-center space-x-1 hover:text-[#C8A75B] transition-colors"
+                title="Admin Login"
+              >
+                <Shield size={16} />
+                <span>Admin</span>
+              </button>
             </div>
           </div>
         </div>

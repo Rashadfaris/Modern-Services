@@ -1,15 +1,29 @@
+import { useState, useEffect } from 'react';
 import { TestimonialCard } from '../components/TestimonialCard';
 import { Button } from '../components/ui/button';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { FadeIn } from '../components/FadeIn';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, Send, CheckCircle } from 'lucide-react';
+import { submitTestimonial, getApprovedTestimonials, Testimonial } from '../lib/firestore';
+import { getClientCountFormatted } from '../lib/clientCount';
 
 interface TestimonialsPageProps {
   onNavigate: (page: string) => void;
 }
 
 export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
-  const testimonials = [
+  const [firestoreTestimonials, setFirestoreTestimonials] = useState<Testimonial[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    location: '',
+    message: ''
+  });
+
+  // Static testimonials (fallback)
+  const staticTestimonials = [
     {
       name: "Ahmed",
       role: "Investor, Dubai, UAE",
@@ -60,6 +74,73 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
     }
   ];
 
+  // Fetch approved testimonials from Firestore
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        setLoading(true);
+        const approved = await getApprovedTestimonials();
+        setFirestoreTestimonials(approved);
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name.trim() || !formData.location.trim() || !formData.message.trim()) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    try {
+      setSubmitting(true);
+      await submitTestimonial(formData.name, formData.location, formData.message);
+      setSubmitted(true);
+      setFormData({ name: '', location: '', message: '' });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Error submitting testimonial:', error);
+      alert('Failed to submit testimonial. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // Format date helper
+  const formatDate = (timestamp: any) => {
+    if (!timestamp) return '';
+    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    return date.toLocaleDateString('en-GB', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  // Combine static and Firestore testimonials
+  const allTestimonials = [
+    ...staticTestimonials,
+    ...firestoreTestimonials.map((t) => ({
+      name: t.name,
+      role: t.location,
+      content: t.message,
+      rating: t.rating || 5,
+      date: formatDate(t.createdAt)
+    }))
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -96,7 +177,7 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
               <div className="text-white text-sm">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-4xl text-white mb-2">56+</div>
+              <div className="text-4xl text-white mb-2">{getClientCountFormatted()}</div>
               <div className="text-white text-sm">Happy Clients</div>
             </div>
             <div>
@@ -119,15 +200,109 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard
-                  key={index}
-                  name={testimonial.name}
-                  role={testimonial.role}
-                  content={testimonial.content}
-                  rating={testimonial.rating}
-                />
-              ))}
+              {loading ? (
+                <div className="col-span-full text-center py-12">
+                  <p className="text-gray-600">Loading testimonials...</p>
+                </div>
+              ) : allTestimonials.length === 0 ? (
+                <div className="col-span-full text-center py-12">
+                  <p className="text-gray-600">No testimonials available yet.</p>
+                </div>
+              ) : (
+                allTestimonials.map((testimonial, index) => (
+                  <TestimonialCard
+                    key={index}
+                    name={testimonial.name}
+                    role={testimonial.role}
+                    content={testimonial.content}
+                    rating={testimonial.rating}
+                    date={testimonial.date}
+                  />
+                ))
+              )}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Submit Testimonial Form */}
+      <section className="py-20 bg-[#F4F5F7]">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <div className="text-center mb-8">
+                <h2 className="text-[#0A1A2F] mb-4">Share Your Experience</h2>
+                <p className="text-gray-600">
+                  We'd love to hear about your experience with Modern Services. Your feedback helps us improve and helps other investors make informed decisions.
+                </p>
+              </div>
+
+              {submitted ? (
+                <div className="bg-green-50 border border-green-200 text-green-800 p-6 rounded-lg mb-6">
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle size={20} className="text-green-600" />
+                    <p className="font-semibold">Thank you for your feedback!</p>
+                  </div>
+                  <p className="text-sm mt-2">Your testimonial is pending approval and will be reviewed shortly.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-[#C8A75B] transition-colors"
+                      placeholder="John"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
+                      Location *
+                    </label>
+                    <input
+                      type="text"
+                      id="location"
+                      name="location"
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-[#C8A75B] transition-colors"
+                      placeholder="Dubai, UAE"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Testimonial *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-[#C8A75B] transition-colors resize-none"
+                      placeholder="Share your experience with Modern Services..."
+                    />
+                  </div>
+
+                  <Button type="submit" disabled={submitting} fullWidth>
+                    <span className="flex items-center justify-center space-x-2">
+                      <Send size={20} />
+                      <span>{submitting ? 'Submitting...' : 'Submit Testimonial'}</span>
+                    </span>
+                  </Button>
+                </form>
+              )}
             </div>
           </FadeIn>
         </div>

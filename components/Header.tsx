@@ -35,7 +35,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
               aria-label="Go to Modern Services home page"
             >
               <img
-                src="/logo/Corporate_Logo_with_Building_and_Shield_Icon-removebg-preview.png"
+                src="/logo/Logo_with_House_and_Shield_Icon-removebg-preview.png"
                 alt="Modern Services logo"
                 className="h-12 w-auto sm:h-14 md:h-16 object-contain transition-transform duration-200 group-hover:scale-105"
               />

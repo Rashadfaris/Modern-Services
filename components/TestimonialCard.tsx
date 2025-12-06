@@ -5,9 +5,10 @@ interface TestimonialCardProps {
   role: string;
   content: string;
   rating?: number;
+  date?: string;
 }
 
-export function TestimonialCard({ name, role, content, rating = 5 }: TestimonialCardProps) {
+export function TestimonialCard({ name, role, content, rating = 5, date }: TestimonialCardProps) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
       <div className="flex items-center space-x-1 mb-4">
@@ -19,6 +20,9 @@ export function TestimonialCard({ name, role, content, rating = 5 }: Testimonial
       <div className="border-t border-gray-200 pt-4">
         <div className="font-semibold text-[#0A1A2F]">{name}</div>
         <div className="text-sm text-gray-500">{role}</div>
+        {date && (
+          <div className="text-xs text-gray-400 mt-1">Submitted: {date}</div>
+        )}
       </div>
     </div>
   );
