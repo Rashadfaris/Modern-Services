@@ -118,16 +118,6 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
     }
   };
 
-  // Format date helper
-  const formatDate = (timestamp: any) => {
-    if (!timestamp) return '';
-    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
-    return date.toLocaleDateString('en-GB', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
 
   // Combine static and Firestore testimonials
   const allTestimonials = [
@@ -140,7 +130,7 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
       role: t.location,
       content: t.message,
       rating: t.rating || 5,
-      date: formatDate(t.createdAt)
+      date: undefined as string | undefined
     }))
   ];
 
