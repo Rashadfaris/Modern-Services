@@ -184,7 +184,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h4 className="text-[#0A1A2F] mb-2">Company Registration</h4>
-                    <p className="text-gray-600">Company Registration No: 07540085 (England and Wales)</p>
+                    <p className="text-gray-600">Company Registration No: OC407556 </p>
                   </div>
                 </div>
 

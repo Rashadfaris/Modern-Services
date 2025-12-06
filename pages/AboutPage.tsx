@@ -39,10 +39,10 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                 Founded over 10 years ago, Modern Services was born from a simple vision: to provide international property investors with the same level of care and attention they would give their own investments. What started as a small property management firm has grown into a comprehensive service provider, trusted by investors across the globe.
               </p>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Throughout our decade journey, we've managed hundreds of properties across England, from luxury apartments in London to charming homes in the countryside. Our success is built on unwavering commitment to our clients' prosperity and the communities we serve.
+                Throughout our decade-long journey, we have successfully managed over fifty properties across England, ranging from luxury apartments in London to charming countryside homes. Our success is built on an unwavering commitment to our clients' prosperity and the communities we serve.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Today, Modern Services stands as a beacon of excellence in property management, combining traditional values of integrity and service with cutting-edge technology and financial expertise. We don't just manage properties—we build lasting partnerships and create value for our clients every single day.
+                Today, Modern Services stands as a trusted leader in property management, combining time-honoured values of integrity and service with modern technology and financial expertise. We don't just manage properties — we build long-term partnerships and deliver real value to our clients every single day.
               </p>
             </div>
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
@@ -182,7 +182,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               <div className="text-white/90">Years Experience</div>
             </div>
             <div>
-              <div className="text-5xl text-white mb-2">500+</div>
+              <div className="text-5xl text-white mb-2">50+</div>
               <div className="text-white/90">Properties Managed</div>
             </div>
             <div>

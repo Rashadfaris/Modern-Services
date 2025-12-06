@@ -336,7 +336,7 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
-            {['UAE', 'USA', 'Singapore', 'Spain', 'France', 'Germany', 'Australia', 'Japan', 'India', 'Russia', 'Mexico', 'Ireland'].map((country) => (
+            {['UAE', 'USA', 'Saudi', 'Spain', 'France', 'Germany', 'Australia', 'Japan', 'India', 'Qatar', 'Mexico', 'Ireland'].map((country) => (
               <div key={country} className="bg-[#F4F5F7] p-6 rounded-lg">
                 <div className="text-[#0A1A2F]">{country}</div>
               </div>
