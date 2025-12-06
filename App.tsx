@@ -8,7 +8,7 @@ import { TestimonialsPage } from './pages/TestimonialsPage';
 import { ContactPage } from './pages/ContactPage';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { AdminLogin } from './components/AdminLogin';
-import { onAuthChange, getCurrentUser, isAdmin } from './lib/auth';
+import { onAuthChange, isAdmin } from './lib/auth';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -52,7 +52,7 @@ export default function App() {
 
     // Show admin dashboard if authenticated
     if (currentPage === 'admin' && isAuthenticated) {
-      return <AdminDashboard onNavigate={handleNavigate} onLogout={handleLogout} />;
+      return <AdminDashboard onLogout={handleLogout} />;
     }
 
     // Regular pages

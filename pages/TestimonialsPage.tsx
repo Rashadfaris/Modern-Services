@@ -131,7 +131,10 @@ export function TestimonialsPage({ onNavigate }: TestimonialsPageProps) {
 
   // Combine static and Firestore testimonials
   const allTestimonials = [
-    ...staticTestimonials,
+    ...staticTestimonials.map((t) => ({
+      ...t,
+      date: undefined as string | undefined
+    })),
     ...firestoreTestimonials.map((t) => ({
       name: t.name,
       role: t.location,

@@ -12,11 +12,10 @@ import { LogOut, CheckCircle, XCircle, Clock, User, MapPin, MessageSquare } from
 import { FadeIn } from '../components/FadeIn';
 
 interface AdminDashboardProps {
-  onNavigate: (page: string) => void;
   onLogout: () => void;
 }
 
-export function AdminDashboard({ onNavigate, onLogout }: AdminDashboardProps) {
+export function AdminDashboard({ onLogout }: AdminDashboardProps) {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState<string | null>(null);

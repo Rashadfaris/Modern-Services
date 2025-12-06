@@ -20,8 +20,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist", "vite.config.ts", "**/*.config.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "components/**/*.ts", "components/**/*.tsx", "pages/**/*.ts", "pages/**/*.tsx", "lib/**/*.ts", "firebase/**/*.ts", "App.tsx"],
+  "exclude": ["node_modules", "dist", "vite.config.ts", "**/*.config.ts", "functions", "functions/**/*", "modern_services"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
 

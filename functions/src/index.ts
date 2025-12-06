@@ -24,7 +24,7 @@ const getBaseUrl = () => {
 // Trigger when a new testimonial is created
 export const onTestimonialCreated = functions.firestore
   .document('testimonials/{testimonialId}')
-  .onCreate(async (snap, context) => {
+  .onCreate(async (snap: functions.firestore.QueryDocumentSnapshot, context: functions.EventContext) => {
     const testimonial = snap.data();
     const testimonialId = context.params.testimonialId;
 
@@ -99,7 +99,7 @@ export const onTestimonialCreated = functions.firestore
   });
 
 // HTTP function to approve a testimonial
-export const approveTestimonial = functions.https.onRequest(async (req, res) => {
+export const approveTestimonial = functions.https.onRequest(async (req: functions.https.Request, res: functions.Response) => {
   // Set CORS headers
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -198,7 +198,7 @@ export const approveTestimonial = functions.https.onRequest(async (req, res) => 
 });
 
 // HTTP function to decline a testimonial
-export const declineTestimonial = functions.https.onRequest(async (req, res) => {
+export const declineTestimonial = functions.https.onRequest(async (req: functions.https.Request, res: functions.Response) => {
   // Set CORS headers
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
