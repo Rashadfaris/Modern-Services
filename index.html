@@ -53,6 +53,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0A1A2F" />
+    <!-- Content Security Policy - Allow connections to Railway backend, Google Fonts, and Google Maps -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="connect-src 'self' https://modern-services-backend-production.up.railway.app https://*.up.railway.app https://modernservices.org.uk https://www.modernservices.org.uk; default-src 'self' https://www.google.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://*.google.com;"
+    />
     <title>Modern Services - Property Management in England</title>
   </head>
   <body>

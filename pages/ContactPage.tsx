@@ -25,18 +25,17 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
     setError(null);
     setSubmitting(true);
 
-    // API endpoint - use environment variable, same origin, or default to localhost
-    // If VITE_API_URL is not set, use same origin (for Vercel where frontend and backend are on same domain)
-    let apiUrl = import.meta.env.VITE_API_URL;
+    // API endpoint - use environment variable or Railway backend URL
+    // Priority: VITE_API_URL from .env > Railway backend > localhost for development
+    const API_URL = 
+      import.meta.env.VITE_API_URL || 
+      'https://modern-services-backend-production.up.railway.app';
     
-    if (!apiUrl) {
-      // Use same origin if available (browser), otherwise default to localhost for development
-      if (typeof window !== 'undefined') {
-        apiUrl = window.location.origin;
-      } else {
-        apiUrl = 'http://localhost:3001';
-      }
-    }
+    // For local development, use localhost if running on localhost
+    const apiUrl = 
+      typeof window !== 'undefined' && window.location.hostname === 'localhost'
+        ? 'http://localhost:3001'
+        : API_URL;
 
     try {
       const response = await fetch(`${apiUrl}/api/send-email`, {

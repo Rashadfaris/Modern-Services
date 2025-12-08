@@ -1,21 +1,39 @@
 import express from 'express';
-import cors from 'cors';
 import sendEmailHandler from './api/send-email.js';
 import healthHandler from './api/health.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors({
-  origin: [
-    'https://modernservices.org.uk',
-    'https://www.modernservices.org.uk',
-    'http://localhost:5173',
-    'http://localhost:3000',
-  ],
-  credentials: true,
-}));
+// CORS configuration
+const allowedOrigins = [
+  'https://modernservices.org.uk',
+  'https://www.modernservices.org.uk',
+  'http://localhost:5173',
+  'http://localhost:3000',
+];
+
+// CORS middleware - MUST be first, before everything
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  
+  // Set CORS headers for ALL requests (including OPTIONS)
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Max-Age', '86400');
+  }
+  
+  // Handle preflight OPTIONS request - MUST return here
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  
+  next();
+});
+
 app.use(express.json());
 
 // Health check endpoint
@@ -26,11 +44,6 @@ app.get('/api/health', async (req, res) => {
 // Send email endpoint
 app.post('/api/send-email', async (req, res) => {
   await sendEmailHandler(req, res);
-});
-
-// Handle OPTIONS for CORS preflight
-app.options('/api/*', (req, res) => {
-  res.status(200).end();
 });
 
 // Root endpoint

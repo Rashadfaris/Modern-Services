@@ -19,28 +19,8 @@ const transporter = nodemailer.createTransport({
 });
 
 export default async function handler(req, res) {
-  // CORS headers - Allow your Hostinger frontend domain
-  const allowedOrigins = [
-    'https://modernservices.org.uk',
-    'https://www.modernservices.org.uk',
-    'http://localhost:5173',
-    'http://localhost:3000',
-  ];
-  
-  const origin = req.headers.origin;
-  const allowedOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
-  
-  res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
-  res.setHeader('Access-Control-Max-Age', '86400'); // 24 hours
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-
-  // Handle preflight request (OPTIONS)
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
+  // CORS is handled by middleware in index.js - no need to set headers here
+  // Just ensure the origin is allowed (middleware already checked)
 
   // Only allow POST requests
   if (req.method !== 'POST') {
