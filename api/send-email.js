@@ -19,10 +19,21 @@ const transporter = nodemailer.createTransport({
 });
 
 export default async function handler(req, res) {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // Enable CORS - Set headers before handling request
+  const origin = req.headers.origin;
+  const allowedOrigins = [
+    'https://modern-services.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:3000',
+  ];
+  
+  // Allow the request origin if it's in the allowed list, or allow all in development
+  const corsOrigin = allowedOrigins.includes(origin) ? origin : '*';
+  
+  res.setHeader('Access-Control-Allow-Origin', corsOrigin);
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS, GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
 
   // Handle preflight request
   if (req.method === 'OPTIONS') {
