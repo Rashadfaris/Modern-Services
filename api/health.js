@@ -1,17 +1,11 @@
 export default async function handler(req, res) {
-  // Enable CORS
-  const origin = req.headers.origin;
-  const allowedOrigins = [
-    'https://modern-services.vercel.app',
-    'http://localhost:5173',
-    'http://localhost:3000',
-  ];
+  // Enable CORS - Allow all origins for Vercel deployment
+  const origin = req.headers.origin || req.headers.referer?.split('/').slice(0, 3).join('/');
   
-  const corsOrigin = allowedOrigins.includes(origin) ? origin : '*';
-  
-  res.setHeader('Access-Control-Allow-Origin', corsOrigin);
+  res.setHeader('Access-Control-Allow-Origin', origin || '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  res.setHeader('Access-Control-Max-Age', '86400');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
 
   // Handle preflight request
