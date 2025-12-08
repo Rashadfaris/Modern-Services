@@ -1,0 +1,22 @@
+{
+  "name": "modern-services-server",
+  "version": "1.0.0",
+  "description": "Express backend server for Modern Services contact form",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test-smtp": "node test-smtp.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7"
+  }
+}
+

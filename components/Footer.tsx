@@ -88,7 +88,12 @@ export function Footer({ onNavigate }: FooterProps) {
               </li>
               <li className="flex items-start space-x-2">
                 <Mail size={16} className="text-[#C8A75B] mt-1 flex-shrink-0" />
-                <span>info@modernservices.org.uk</span>
+                <a
+                  href="mailto:info@modernservices.org.uk"
+                  className="hover:text-[#C8A75B] transition-colors underline"
+                >
+                  info@modernservices.org.uk
+                </a>
               </li>
               <li className="flex items-start space-x-2">
                 <FileText size={16} className="text-[#C8A75B] mt-1 flex-shrink-0" />

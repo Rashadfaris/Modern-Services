@@ -17,15 +17,54 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send the form data to a server
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
+    setError(null);
+    setSubmitting(true);
+
+    // API endpoint - use environment variable or default to localhost
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
+    try {
+      const response = await fetch(`${apiUrl}/api/send-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || '',
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      // Success - show success message and reset form
+      setFormSubmitted(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
-    }, 3000);
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 5000);
+    } catch (error: any) {
+      console.error('Error sending email:', error);
+      setError(
+        error.message || 
+        'Failed to send message. Please try again or contact us directly at info@modernservices.org.uk'
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -68,7 +107,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
               {formSubmitted ? (
                 <div className="bg-green-50 border border-green-200 text-green-800 p-6 rounded-lg mb-8">
                   <h4 className="text-green-900 mb-2">Thank You!</h4>
-                  <p className="text-sm">Your message has been sent successfully. We'll be in touch soon.</p>
+                  <p className="text-sm">Your message has been sent successfully to <strong>info@modernservices.org.uk</strong>. We'll be in touch within 24 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -135,10 +174,15 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                     />
                   </div>
 
-                  <Button type="submit" fullWidth>
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg">
+                      <p className="text-sm">{error}</p>
+                    </div>
+                  )}
+                  <Button type="submit" fullWidth disabled={submitting}>
                     <span className="flex items-center justify-center space-x-2">
                       <Send size={20} />
-                      <span>Send Message</span>
+                      <span>{submitting ? 'Sending...' : 'Send Message'}</span>
                     </span>
                   </Button>
                 </form>
@@ -172,7 +216,12 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h4 className="text-[#0A1A2F] mb-2">Email</h4>
-                    <p className="text-gray-600">info@modernservices.org.uk</p>
+                    <a
+                      href="mailto:info@modernservices.org.uk"
+                      className="text-gray-600 hover:text-[#C8A75B] transition-colors underline"
+                    >
+                      info@modernservices.org.uk
+                    </a>
                     <p className="text-sm text-gray-500 mt-1">We respond within 24 hours</p>
                   </div>
                 </div>

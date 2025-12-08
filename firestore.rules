@@ -22,8 +22,8 @@ service cloud.firestore {
       allow update: if isAdmin() && 
                      request.resource.data.diff(resource.data).affectedKeys().hasOnly(['approved']);
       
-      // Allow admin to delete (decline) testimonials
-      allow delete: if isAdmin();
+    // Allow admin to delete (decline) testimonials
+    allow delete: if isAdmin();
     }
   }
 }
