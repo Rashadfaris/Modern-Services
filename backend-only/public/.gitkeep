@@ -1,3 +1,0 @@
-# This file keeps the public directory in git
-# Vercel requires an output directory, but we only have serverless functions
-
