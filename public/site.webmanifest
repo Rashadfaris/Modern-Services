@@ -1,20 +1,23 @@
 {
   "name": "Modern Services - Property Management",
   "short_name": "Modern Services",
+  "description": "Property management services for international investors in England",
   "icons": [
     {
-      "src": "/logo/favi icon.png",
+      "src": "/logo/favicon_io/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/logo/favi icon.png",
+      "src": "/logo/favicon_io/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "theme_color": "#0A1A2F",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
 }
 
