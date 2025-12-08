@@ -19,21 +19,19 @@ const transporter = nodemailer.createTransport({
 });
 
 export default async function handler(req, res) {
-  // Enable CORS - Allow all origins for Vercel deployment
-  // Get the origin from the request
-  const origin = req.headers.origin || req.headers.referer?.split('/').slice(0, 3).join('/');
+  // Enable CORS - Allow all Vercel origins (production and preview deployments)
+  const origin = req.headers.origin;
   
-  // Set CORS headers - allow the request origin or use wildcard
+  // Allow all origins (including all Vercel preview URLs)
   res.setHeader('Access-Control-Allow-Origin', origin || '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS, GET');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
   res.setHeader('Access-Control-Max-Age', '86400'); // 24 hours
   res.setHeader('Access-Control-Allow-Credentials', 'true');
 
-  // Handle preflight request (OPTIONS)
+  // Handle preflight request (OPTIONS) - MUST return early with 200
   if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+    return res.status(200).end();
   }
 
   // Only allow POST requests

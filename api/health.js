@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
-  // Enable CORS - Allow all origins for Vercel deployment
-  const origin = req.headers.origin || req.headers.referer?.split('/').slice(0, 3).join('/');
+  // Enable CORS - Allow all Vercel origins
+  const origin = req.headers.origin;
   
   res.setHeader('Access-Control-Allow-Origin', origin || '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -10,8 +10,7 @@ export default async function handler(req, res) {
 
   // Handle preflight request
   if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+    return res.status(200).end();
   }
 
   if (req.method !== 'GET') {
